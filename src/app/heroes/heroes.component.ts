@@ -6,11 +6,12 @@ import { HeroService } from '../hero.service';
 import { NgFor, NgIf } from '@angular/common';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { MessageService } from '../message.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-heroes',
   standalone: true,
-  imports: [FormsModule, NgFor, HeroDetailComponent],
+  imports: [FormsModule, NgFor, RouterLink],
   templateUrl: './heroes.component.html',
   styleUrl: './heroes.component.scss'
 })
@@ -20,15 +21,15 @@ export class HeroesComponent {
     name: 'Windstorm'
   };*/
   heroes: Hero[]=[];
-  selectedHero?: Hero;
+  //selectedHero?: Hero;
 
-  onSelect(hero: Hero): void {
+  /*onSelect(hero: Hero): void {
     this.selectedHero = hero;
     this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
-  }
+  }*/
   constructor(
     private heroService: HeroService, 
-    private messageService: MessageService) {}
+   ) {}
 
   getHeroes(): void {
      this.heroService.getHeroes().
